@@ -68,7 +68,7 @@ function Head() {
         name="twitter:description"
         content="HTML, dynamically rendered in a city near you"
       />
-      <meta name="twitter:image" content="/og/card.png" />
+      <meta name="twitter:image" content="/static/og/card.png" />
       <meta name="twitter:image:alt" content="The Vercel and React logos" />
     </head>
   );
