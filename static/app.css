@@ -98,6 +98,15 @@ main .block strong.na {
   font-weight: normal;
 }
 
+.debug {
+  position: absolute;
+  bottom: 20px;
+  text-align: center;
+  width: 100%;
+  font-size: 11px;
+  color: #999;
+}
+
 @media (min-width: 640px) {
   main h1 {
     font-size: min(8vw, 4rem);

@@ -1,4 +1,4 @@
-export default function App({ req }) {
+export default function App({ req, isCold }) {
   const parsedCity = decodeURIComponent(req.headers.get("x-vercel-ip-city"));
   // from vercel we get the string `null` when it can't decode the IP
   const city = parsedCity === "null" ? null : parsedCity;
@@ -40,6 +40,9 @@ export default function App({ req }) {
               </div>
             </div>
           </main>
+          <div class="debug">
+            Generated at {new Date().toISOString()} ({isCold ? "cold" : "hot"})
+          </div>
         </div>
 
         <Footer />
