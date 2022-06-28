@@ -1,4 +1,7 @@
-export default function App({ req }) {
+import { Suspense, useEffect, useState } from "react";
+import { suspend } from "suspend-react";
+
+export default function App({ req, stream = false }) {
   const parsedCity = decodeURIComponent(req.headers.get("x-vercel-ip-city"));
   // from vercel we get the string `null` when it can't decode the IP
   const city = parsedCity === "null" ? null : parsedCity;
@@ -12,12 +15,21 @@ export default function App({ req }) {
 
           <main>
             <h1>
-              <span>Hello from the edge!</span>
+              <span>
+                Hello from the{" "}
+                {!stream ? (
+                  "edge!"
+                ) : (
+                  <Suspense fallback="edge...">
+                    <SuspensedEdge req={req} />
+                  </Suspense>
+                )}
+              </span>
             </h1>
 
-            <div class="info">
-              <div class="block">
-                <div class="contents">
+            <div className="info">
+              <div className="block">
+                <div className="contents">
                   <span>Your city</span>
                   <strong
                     title={
@@ -25,15 +37,15 @@ export default function App({ req }) {
                         ? "GeoIP information could not be derived from your IP"
                         : null
                     }
-                    class={city === null ? "na" : null}
+                    className={city === null ? "na" : null}
                   >
                     {city === null ? "N/A" : city}
                   </strong>
                 </div>
               </div>
 
-              <div class="block">
-                <div class="contents">
+              <div className="block">
+                <div className="contents">
                   <span>Your IP address</span>
                   <strong>{ip}</strong>
                 </div>
@@ -52,7 +64,7 @@ function Head() {
   return (
     <head>
       <title>React on the edge</title>
-      <meta charset="utf-8" />
+      <meta charSet="utf-8" />
       <link rel="icon" href="/static/favicon.png" />
       <link rel="stylesheet" href="/static/app.css" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -282,7 +294,7 @@ function Card() {
             className="orbit"
             style={{
               stroke: "url(#gradient-1)",
-              animationDelay: 0,
+              animationDelay: "0",
             }}
             r={53.4}
           />
@@ -401,7 +413,7 @@ function Card() {
 function Footer() {
   return (
     <footer>
-      <p class="company">
+      <p className="company">
         <a target="_blank" href="https://vercel.com" aria-label="Vercel">
           <svg
             viewBox="0 0 4438 1000"
@@ -416,7 +428,7 @@ function Footer() {
         </a>
       </p>
 
-      <p class="details">
+      <p className="details">
         Built with{" "}
         <a target="_blank" href="https://nextjs.org">
           React
@@ -430,7 +442,7 @@ function Footer() {
       <a
         target="_blank"
         href="https://github.com/vercel-labs/react-on-the-edge"
-        class="source"
+        className="source"
       >
         <svg
           width="24"
@@ -450,4 +462,31 @@ function Footer() {
       </a>
     </footer>
   );
+}
+
+function SuspensedEdge(props: { req: Request }) {
+  const calculated = suspend(async () => {
+    await sleep(3000);
+    return `This was calculated on the server for ${props.req.url}`;
+  }, [props.req]);
+  return (
+    <strong title={calculated}>
+      Streaming Edge
+      <Suspense fallback={"..."}>
+        <ForRealSuspended req={props.req} />
+      </Suspense>
+    </strong>
+  );
+}
+
+function ForRealSuspended(props: { req: Request }) {
+  const calculated = suspend(async () => {
+    await sleep(2000);
+    return `This was too calculated on the server for ${props.req.url}`;
+  }, [props.req, "2"]);
+  return <small title={calculated}> (for real)</small>;
+}
+
+function sleep(ms: number) {
+  return new Promise<void>((res) => setTimeout(res, ms));
 }

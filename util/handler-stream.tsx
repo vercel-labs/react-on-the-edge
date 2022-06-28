@@ -4,7 +4,7 @@ import { renderToReadableStream } from "react-dom/server";
 export default async function Handler(req: Request) {
   let didError = false;
 
-  const stream = await renderToReadableStream(<App req={req} />, {
+  const stream = await renderToReadableStream(<App req={req} stream />, {
     onError(err: Error) {
       didError = true;
       console.error(err);
