@@ -432,7 +432,7 @@ function Footer() {
 
       <a
         target="_blank"
-        href="https://github.com/vercel-labs/react-on-the-edge"
+        href="https://github.com/vercel/react-on-the-edge"
         class="source"
       >
         <svg
