@@ -1,7 +1,7 @@
 # React on the Edge
 
 This project implements [`sveltekit-on-the-edge`](https://sveltekit-on-the-edge.vercel.app/) but on top of React.
-It uses `esbuild` for bundling and the Vercel [Build Output API](https://vercel.com/docs/build-output-api/v3) to deploy the result as an Edge Function.
+It uses `esbuild` for bundling and the Vercel [Build Output API](https://vercel.com/docs/build-output-api/v3) to deploy the result as a [Vercel Edge Function](https://vercel.com/edge).
 
 ## How to use
 
