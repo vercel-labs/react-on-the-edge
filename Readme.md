@@ -1,7 +1,8 @@
 # React on the Edge
 
-This project implements [`sveltekit-on-the-edge`](https://sveltekit-on-the-edge.vercel.app/) but on top of React.
-It uses `esbuild` for bundling and the Vercel [Build Output API](https://vercel.com/docs/build-output-api/v3) to deploy the result as a [Vercel Edge Function](https://vercel.com/edge).
+[`sveltekit-on-the-edge`](https://sveltekit-on-the-edge.vercel.app/) but on top of React. It uses `esbuild` for bundling and [Vercel Edge Functions](https://vercel.com/edge) for SSR.
+
+This example is for framework builders and advanced usage of the low-level Vercel [Build Output API](https://vercel.com/docs/build-output-api/v3). If you're looking to develop a React application with dynamic Edge capabilities, we recommend [Next.js Middleware](https://nextjs.org/docs/advanced-features/middleware) and [Vercel Edge Functions](https://vercel.com/edge).
 
 ## How to use
 
