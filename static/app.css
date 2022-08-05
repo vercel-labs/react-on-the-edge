@@ -6,7 +6,7 @@ body {
 body {
   --fg: black;
   --bg: white;
-  --react: #61dafb;
+  --preact: #673ab8;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -16,7 +16,7 @@ body {
 }
 
 ::selection {
-  background: var(--react);
+  background: var(--preact);
   color: var(--bg);
 }
 
@@ -201,7 +201,7 @@ svg.card {
 }
 
 .card .orange.satellite {
-  stroke: var(--react);
+  stroke: var(--preact);
 }
 
 .card .gray.satellite {
@@ -307,7 +307,7 @@ footer .details {
 }
 
 footer .details a {
-  color: var(--react);
+  color: var(--preact);
 }
 
 footer .source,
