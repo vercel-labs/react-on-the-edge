@@ -55,7 +55,7 @@ export default function App({ req, isCold }) {
 function Head() {
   return (
     <head>
-      <title>React on the edge</title>
+      <title>Preact on the edge</title>
       <meta charset="utf-8" />
       <link rel="icon" href="/static/favicon.png" />
       <link rel="stylesheet" href="/static/app.css" />
@@ -67,13 +67,13 @@ function Head() {
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content="@vercel" />
       <meta name="twitter:creator" content="@vercel" />
-      <meta name="twitter:title" content="React on the edge" />
+      <meta name="twitter:title" content="Preact on the edge" />
       <meta
         name="twitter:description"
         content="HTML, dynamically rendered in a city near you"
       />
       <meta name="twitter:image" content="/static/og/card.png" />
-      <meta name="twitter:image:alt" content="The Vercel and React logos" />
+      <meta name="twitter:image:alt" content="The Vercel and Preact logos" />
     </head>
   );
 }
@@ -232,7 +232,7 @@ function Card() {
           />
         </linearGradient>
         <linearGradient
-          id="gradient-react"
+          id="gradient-preact"
           gradientUnits="objectBoundingBox"
           x1={0}
           y1={0}
@@ -432,8 +432,8 @@ function Footer() {
 
       <p class="details">
         Built with{' '}
-        <a target="_blank" href="https://nextjs.org">
-          React
+        <a target="_blank" href="https://preactjs.com">
+          Preact
         </a>{' '}
         on{' '}
         <a target="_blank" href="https://vercel.com">
@@ -443,7 +443,7 @@ function Footer() {
 
       <a
         target="_blank"
-        href="https://github.com/vercel-labs/react-on-the-edge"
+        href="https://github.com/preactjs/preact-on-the-edge"
         class="source"
       >
         <svg

@@ -29,7 +29,7 @@ await build({
   minify: true,
   format: 'esm',
   define: {
-    // ensures React production build
+    // ensures Preact production build
     'process.env.NODE_ENV': "'production'",
   },
   jsxFactory: 'Preact.h',
