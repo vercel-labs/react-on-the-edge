@@ -57,7 +57,7 @@ function Head() {
     <head>
       <title>Preact on the edge</title>
       <meta charset="utf-8" />
-      <link rel="icon" href="/static/favicon.png" />
+      <link rel="icon" href="/static/favicon.ico" />
       <link rel="stylesheet" href="/static/app.css" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta
