@@ -1,15 +1,15 @@
 import App from '../src/app';
-import { prerender } from 'preact-iso';
+import renderToString from 'preact-render-to-string';
 
 let isCold = true;
 
-export default async function Handler(req: Request) {
+export default function Handler(req: Request) {
   const wasCold = isCold;
   let html: string;
   isCold = false;
 
   try {
-    html = (await prerender(<App req={req} isCold={wasCold} />)).html;
+    html = renderToString(<App req={req} isCold={wasCold} />);
   } catch (err) {
     console.error('Render error:', err.stack);
     return new Response(

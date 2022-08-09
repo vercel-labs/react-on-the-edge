@@ -23,7 +23,6 @@ await rm(OUT_DIR, { recursive: true, force: true });
 await build({
   bundle: true,
   target: ['es2022'],
-  inject: [join(__dirname, 'import-shim.js')],
   entryPoints: [join(__dirname, 'handler.tsx')],
   outfile: OUT_FILE,
   minify: true,
@@ -32,8 +31,8 @@ await build({
     // ensures Preact production build
     'process.env.NODE_ENV': "'production'",
   },
-  jsxFactory: 'Preact.h',
-  jsxFragment: 'Preact.Fragment',
+  jsxImportSource: 'preact',
+  jsx: 'automatic',
 });
 
 // output
