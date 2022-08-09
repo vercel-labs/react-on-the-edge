@@ -1,5 +1,5 @@
 import App from '../src/app';
-import { renderToString } from 'react-dom/server';
+import { prerender } from 'preact-iso';
 
 let isCold = true;
 
@@ -9,7 +9,7 @@ export default async function Handler(req: Request) {
   isCold = false;
 
   try {
-    html = renderToString(<App req={req} isCold={wasCold} />);
+    html = (await prerender(<App req={req} isCold={wasCold} />)).html;
   } catch (err) {
     console.error('Render error:', err.stack);
     return new Response(

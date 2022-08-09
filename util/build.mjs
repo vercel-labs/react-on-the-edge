@@ -24,27 +24,22 @@ await build({
   bundle: true,
   target: ['es2022'],
   inject: [join(__dirname, 'import-shim.js')],
-  entryPoints: [
-    join(
-      __dirname,
-      process.env.USE_STREAMS ? 'handler-stream.tsx' : 'handler.tsx'
-    ),
-  ],
+  entryPoints: [join(__dirname, 'handler.tsx')],
   outfile: OUT_FILE,
   minify: true,
   format: 'esm',
   define: {
-    // ensures React production build
+    // ensures Preact production build
     'process.env.NODE_ENV': "'production'",
   },
+  jsxFactory: 'Preact.h',
+  jsxFragment: 'Preact.Fragment',
 });
 
 // output
 const outLength = (await stat(OUT_FILE)).size;
 console.log(
-  `✓ Built app bundle${
-    process.env.USE_STREAMS ? ' (with streams)' : ''
-  } ${pc.cyan(`(${bytes(outLength)})`)} ${pc.gray(
+  `✓ Built app bundle ${pc.cyan(`(${bytes(outLength)})`)} ${pc.gray(
     `[${ms(Date.now() - buildStart)}]`
   )}`
 );

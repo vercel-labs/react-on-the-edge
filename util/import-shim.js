@@ -1,3 +1,3 @@
-// needed for React 17+ JSX transform
-// https://bit.ly/3xNsL9f
-export * as React from 'react';
+import { Fragment, h } from 'preact';
+
+export const Preact = { Fragment, h };

@@ -1,8 +1,8 @@
-# React on the Edge
+# Preact on the Edge
 
-[`sveltekit-on-the-edge`](https://sveltekit-on-the-edge.vercel.app/) but on top of React. It uses `esbuild` for bundling and [Vercel Edge Functions](https://vercel.com/edge) for SSR.
+[`react-on-the-edge`](https://react-on-the-edge.vercel.app/) but on top of Preact. It uses `esbuild` for bundling and [Vercel Edge Functions](https://vercel.com/edge) for SSR.
 
-This example is for framework builders and advanced usage of the low-level Vercel [Build Output API](https://vercel.com/docs/build-output-api/v3). If you're looking to develop a React application with dynamic Edge capabilities, we recommend [Next.js Middleware](https://nextjs.org/docs/advanced-features/middleware) and [Vercel Edge Functions](https://vercel.com/edge).
+This example is for framework builders and advanced usage of the low-level Vercel [Build Output API](https://vercel.com/docs/build-output-api/v3). If you're looking to develop a Preact application with dynamic Edge capabilities, we recommend [Next.js Middleware](https://nextjs.org/docs/advanced-features/middleware) and [Vercel Edge Functions](https://vercel.com/edge), with [`preact/compat`](https://preactjs.com/guide/v10/switching-to-preact).
 
 ## How to use
 
@@ -11,7 +11,6 @@ Run `pnpm i` then:
 - To build: `pnpm build`
 - To run a local server: `pnpm start`
 
-To build this demo with streaming (`renderToStream`) instead of `renderToString` run `USE_STREAMS=1 pnpm build`.
 After building, `.vercel/output` will be created which you can deploy via `vc --prebuilt`.
 
 ## Architecture
